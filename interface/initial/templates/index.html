@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Prediction</title>
+  </head>
+  <body>
+    <h3>{{ filedata }}</h3>
+    <div class="container-sm">
+      <div class="row align-items-start">
+        <form
+          class="form form-horizontal"
+          method="post"
+          role="form"
+          enctype="multipart/form-data"
+        >
+          <label
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+            for="file_input"
+            >Upload file</label
+          >
+          <input
+            class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            id="file_input"
+            type="file"
+          />
+
+          {{ form.hidden_tag() }}
+
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="form-group">
+                {% for subfield in form.fruit %}
+                <tr>
+                  <td>{{ subfield }}</td>
+                  <td>{{ subfield.label }}</td>
+                </tr>
+                {% endfor %}
+              </div>
+              <div class="form-group">{{ form.trained_model }}</div>
+            </div>
+            <div class="col">
+              <div class="form-group">{{ form.upload }}</div>
+              <button type="submit" class="btn btn-primary">
+                <span class="oi oi-check" title="Submit">Analyze</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
