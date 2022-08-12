@@ -13,6 +13,7 @@ def predict_one(fruit, model, img_data):
     img_array = np.expand_dims(img_array, axis=0)
     classes = model_h5.predict(preprocess_input(img_array))
     if classes[0][0] > 0.5:
-        return "FRESH"
+        return ("FRESH", classes[0][0])
     elif classes[0][1] > 0.5:
-        return "HAS DEFECT"
+        return ("HAS DEFECT", classes[0][1])
+    return ("Error", 0.0)

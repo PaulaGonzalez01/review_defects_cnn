@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" class="h">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <title>Prediction</title>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="min-h-full">
+      <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-center h-16">
+            <div class="flex">
+              <!-- <div class="flex-shrink-0 flex items-center">Fruit defect</div> -->
+              <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
+                <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
+                <a
+                  href="/"
+                  class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  aria-current="page"
+                >
+                  App
+                </a>
+
+                <a
+                  href="/about"
+                  class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                >
+                  Acerca de
+                </a>
+              </div>
+            </div>
+            <div class="-mr-2 flex items-center sm:hidden">
+              <!-- Mobile menu button -->
+              <button
+                type="button"
+                class="bg-white inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <!--
+              Heroicon name: outline/menu
+
+              Menu open: "hidden", Menu closed: "block"
+            -->
+                <svg
+                  class="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+                <svg
+                  class="hidden h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu, show/hide based on menu state. -->
+        <div class="sm:hidden" id="mobile-menu">
+          <div class="pt-2 pb-3 space-y-1">
+            <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" -->
+            <a
+              href="/"
+              class="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+              aria-current="page"
+            >
+              App
+            </a>
+            <a
+              href="/about"
+              class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium"
+            >
+              Acerca de
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="py-10">
+        <header>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1
+              class="text-3xl tracking-tight font-bold leading-tight text-gray-900"
+            >
+              Fruit defect
+            </h1>
+          </div>
+        </header>
+        <main>
+          <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="px-4 py-8 sm:px-0">
+              <div class="rounded-lg h-full flex">
+                <div class="flex-1 p-2">
+                  <form
+                    method="post"
+                    role="form"
+                    enctype="multipart/form-data"
+                    class="bg-white shadow overflow-hidden sm:rounded-lg"
+                  >
+                    <div class="px-4 py-5 sm:px-6">
+                      <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Form
+                      </h3>
+                      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Fill to get the results
+                      </p>
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+                      <fieldset class="mt-4">
+                        <legend class="sr-only">Fruit selected</legend>
+                        <div
+                          class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10"
+                        >
+                          <div
+                            class="max-w-lg flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md"
+                          >
+                            <div class="space-y-1 text-center">
+                              <svg
+                                class="mx-auto h-12 w-12 text-gray-400"
+                                stroke="currentColor"
+                                fill="none"
+                                viewBox="0 0 48 48"
+                                aria-hidden="true"
+                              >
+                                <path
+                                  d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                />
+                              </svg>
+                              <div class="flex text-sm text-gray-600">
+                                <label
+                                  for="image"
+                                  class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                                >
+                                  <span>Upload a file</span>
+                                  <input
+                                    id="image"
+                                    name="image"
+                                    type="file"
+                                    class="sr-only"
+                                  />
+                                </label>
+                                <p class="pl-1">or drag and drop</p>
+                              </div>
+                              <p class="text-xs text-gray-500">
+                                PNG, JPG, GIF up to 10MB
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="px-4 py-5 sm:px-6">
+                      <label class="text-base font-medium text-gray-900"
+                        >Fruit</label
+                      >
+                      <p class="text-sm leading-5 text-gray-500">
+                        What fruit are you checking today?
+                      </p>
+                      <fieldset class="mt-4">
+                        <legend class="sr-only">Fruit selected</legend>
+                        <div
+                          class="space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-10"
+                        >
+                          <div class="flex items-center">
+                            <input
+                              id="apple"
+                              name="fruit"
+                              type="radio"
+                              checked
+                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            />
+                            <label
+                              for="apple"
+                              class="ml-3 block text-sm font-medium text-gray-700"
+                            >
+                              Apple
+                            </label>
+                          </div>
+
+                          <div class="flex items-center">
+                            <input
+                              id="mango"
+                              name="fruit"
+                              type="radio"
+                              class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            />
+                            <label
+                              for="mango"
+                              class="ml-3 block text-sm font-medium text-gray-700"
+                            >
+                              Mango
+                            </label>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+                    <div class="px-4 py-5 sm:px-6">
+                      <label class="text-base font-medium text-gray-900"
+                        >Model</label
+                      >
+                      <p class="text-sm leading-5 text-gray-500">
+                        Chose wisely the model to use
+                      </p>
+                      <fieldset>
+                        <legend class="sr-only">Model</legend>
+                        <div class="space-y-5">
+                          <div class="relative flex items-start">
+                            <div>
+                              <label
+                                for="model"
+                                class="block text-sm font-medium text-gray-700"
+                                >Available models</label
+                              >
+                              <select
+                                id="model"
+                                name="model"
+                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                              >
+                                <option value="vgg16" selected>VGG16</option>
+                                <option value="mobilenetv2">DenseNet121</option>
+                                <option value="inceptionv3">MobileNetV2</option>
+                                <option value="inceptionv3">InceptionV3</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </div>
+
+                    <div class="px-4 py-5 sm:px-6">
+                      <button
+                        type="submit"
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Analyze
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                {% if results %}
+                <div class="flex-1 p-2">
+                  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+                    <div class="px-4 py-5 sm:px-6">
+                      <h3 class="text-lg leading-6 font-medium text-gray-900">
+                        Results
+                      </h3>
+                      <p class="mt-1 max-w-2xl text-sm text-gray-500">
+                        Take a look to what we think you have
+                      </p>
+                    </div>
+                    <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+                      <dl class="sm:divide-y sm:divide-gray-200">
+                        <div
+                          class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                        >
+                          <dt class="text-sm font-medium text-gray-500">
+                            Fruit selected
+                          </dt>
+                          <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                          >
+                            {{results.fruit}}
+                          </dd>
+                        </div>
+                        <div
+                          class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                        >
+                          <dt class="text-sm font-medium text-gray-500">
+                            Model selected
+                          </dt>
+                          <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                          >
+                            {{results.model}}
+                          </dd>
+                        </div>
+                        <div
+                          class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                        >
+                          <dt class="text-sm font-medium text-gray-500">
+                            State
+                          </dt>
+                          <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                          >
+                            {{results.status}}
+                          </dd>
+                        </div>
+                        <div
+                          class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                        >
+                          <dt class="text-sm font-medium text-gray-500">
+                            Accuracy
+                          </dt>
+                          <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                          >
+                            {{results.acc}}%
+                          </dd>
+                        </div>
+                        <div
+                          class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6"
+                        >
+                          <dt class="text-sm font-medium text-gray-500">
+                            Image provided
+                          </dt>
+                          <dd
+                            class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"
+                          >
+                            <img
+                              class="w-full"
+                              src="data:image/png;base64,{{results.image}}"
+                              alt="{{results.fruit}}"
+                            />
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
