@@ -16,7 +16,7 @@ def index():
     files = request.files
     results = {}
     if request.method == "POST":
-        fruit = 'apple' if form['fruit'] else 'mango'
+        fruit = form['fruit']
         image = files['image']
 
         results['fruit'] = fruit

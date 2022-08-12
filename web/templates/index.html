@@ -206,6 +206,7 @@
                               id="apple"
                               name="fruit"
                               type="radio"
+                              value="apple"
                               checked
                               class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                             />
@@ -222,6 +223,7 @@
                               id="mango"
                               name="fruit"
                               type="radio"
+                              value="mango"
                               class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                             />
                             <label
@@ -245,22 +247,94 @@
                         <legend class="sr-only">Model</legend>
                         <div class="space-y-5">
                           <div class="relative flex items-start">
-                            <div>
-                              <label
-                                for="model"
-                                class="block text-sm font-medium text-gray-700"
-                                >Available models</label
-                              >
-                              <select
-                                id="model"
+                            <div class="flex items-center h-5">
+                              <input
+                                id="vgg16"
+                                aria-describedby="vgg16-description"
                                 name="model"
-                                class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                                value="vgg16"
+                                type="radio"
+                                checked
+                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              />
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label
+                                for="vgg16"
+                                class="font-medium text-gray-700"
+                                >VGG16</label
                               >
-                                <option value="vgg16" selected>VGG16</option>
-                                <option value="mobilenetv2">DenseNet121</option>
-                                <option value="inceptionv3">MobileNetV2</option>
-                                <option value="inceptionv3">InceptionV3</option>
-                              </select>
+                              <p id="small-description" class="text-gray-500">
+                                Apple: 96% acc / Mango: 95% acc
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="relative flex items-start">
+                            <div class="flex items-center h-5">
+                              <input
+                                id="inceptionv3"
+                                aria-describedby="inceptionv3-description"
+                                name="model"
+                                value="inceptionv3"
+                                type="radio"
+                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              />
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label
+                                for="inceptionv3"
+                                class="font-medium text-gray-700"
+                                >InceptionV3</label
+                              >
+                              <p id="medium-description" class="text-gray-500">
+                                Apple: 96% acc / Mango: 95% acc
+                              </p>
+                            </div>
+                          </div>
+
+                          <div class="relative flex items-start">
+                            <div class="flex items-center h-5">
+                              <input
+                                id="densenet121"
+                                aria-describedby="densenet121-description"
+                                name="model"
+                                value="densenet121"
+                                type="radio"
+                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              />
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label
+                                for="densenet121"
+                                class="font-medium text-gray-700"
+                                >DenseNet121</label
+                              >
+                              <p id="large-description" class="text-gray-500">
+                                Apple: 96% acc / Mango: 95% acc
+                              </p>
+                            </div>
+                          </div>
+                          <div class="relative flex items-start">
+                            <div class="flex items-center h-5">
+                              <input
+                                id="mobilenetv2"
+                                aria-describedby="mobilenetv2-description"
+                                name="model"
+                                value="mobilenetv2"
+                                type="radio"
+                                class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                              />
+                            </div>
+                            <div class="ml-3 text-sm">
+                              <label
+                                for="mobilenetv2"
+                                class="font-medium text-gray-700"
+                                >MobileNetV2</label
+                              >
+                              <p id="large-description" class="text-gray-500">
+                                Apple: 96% acc / Mango: 95% acc
+                              </p>
                             </div>
                           </div>
                         </div>
