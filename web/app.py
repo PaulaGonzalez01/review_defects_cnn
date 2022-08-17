@@ -24,10 +24,10 @@ def index():
         result = predict.predict_one(
             fruit, form['model'], image.stream._file)
         results['status'] = result[0]
-        results['acc'] = result[1] * 100
+        results['acc'] = result[1]
         image_base64 = base64.b64encode(
             image.stream._file.getvalue(),
-            ).decode('utf-8')
+        ).decode('utf-8')
         results['image'] = image_base64
 
     return render_template("index.html", results=results)
